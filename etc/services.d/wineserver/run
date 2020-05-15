@@ -1,0 +1,10 @@
+#!/usr/bin/with-contenv bash
+# shellcheck shell=bash
+
+HOME=/config
+
+mkdir -p $HOME/.wine
+chown -vR $USER_ID:$GROUP_ID $HOME/.wine
+
+exec \
+  s6-setuidgid $APP_USER /usr/lib/wine/wineserver64 -f 2>&1 | awk -W Interactive '{print "[wineserver] " $0}'
