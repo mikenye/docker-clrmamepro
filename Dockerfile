@@ -5,6 +5,7 @@ RUN set -x && \
     apt-get install -y --no-install-recommends \
         ca-certificates \
         curl \
+        file \
         p7zip-full \
         p7zip-rar \
         unzip \
@@ -33,6 +34,7 @@ RUN set -x && \
     apt-get remove -y \
         ca-certificates \
         curl \
+        file \
         && \
     apt-get autoremove -y && \
     apt-get clean -y && \
